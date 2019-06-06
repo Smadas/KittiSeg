@@ -78,3 +78,7 @@ target/
 .ipynb_checkpoints
 
 \.idea/
+
+RUNSold/
+
+data/
