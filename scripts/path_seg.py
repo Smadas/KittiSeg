@@ -3,7 +3,6 @@
 
 # sensor_msgs::Image to numpy
 #https://answers.ros.org/question/64318/how-do-i-convert-an-ros-image-into-a-numpy-array/
-#https://answers.ros.org/question/64318/how-do-i-convert-an-ros-image-into-a-numpy-array/
 
 from __future__ import absolute_import
 from __future__ import division
@@ -278,14 +277,6 @@ def callback(data):
 def main(_):
     tv_utils.set_gpus_to_use()
 
-    if FLAGS.input_image is None:
-        logging.error("No input_image was given.")
-        logging.info(
-            "Usage: python demo.py --input_image data/test.png "
-            "[--output_image output_image] [--logdir /path/to/weights] "
-            "[--gpus GPUs_to_use] ")
-        exit(1)
-
     if FLAGS.logdir is None:
         # Download and use weights from the MultiNet Paper
         if 'TV_DIR_RUNS' in os.environ:
@@ -388,14 +379,6 @@ class PathDetect:
         green_image = tv_utils.fast_overlay(image, street_prediction)
 
         self.img_seg = green_image
-
-# def path_seg():
-#     rospy.init_node('path_seg', anonymous=True)
-#
-#     rospy.Subscriber("/usb_cam/image_raw", Image, callback)
-#
-#     rospy.spin()
-
 
 if __name__ == '__main__':
     #path_seg()
