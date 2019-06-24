@@ -106,6 +106,15 @@ def numpy_msg(cls):
 # patch the original for good measure
 rospy.numpy_msg.numpy_msg = numpy_msg
 
+import os
+import sys
+
+# Add vendor directory to module search path
+parent_dir = os.path.abspath(os.path.dirname(__file__))
+vendor_dir = os.path.join(parent_dir, 'incl')
+
+sys.path.append(vendor_dir)
+
 from seg_utils import seg_utils as seg
 
 _to_numpy = {}
