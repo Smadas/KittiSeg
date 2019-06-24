@@ -394,7 +394,7 @@ class PathDetect:
         # Plot the hard prediction as green overlay
         green_image = tv_utils.fast_overlay(image, street_prediction)
 
-        self.img_seg = green_image
+        self.img_seg = output_image.convert(mode='RGB')
 
 if __name__ == '__main__':
     #path_seg()
