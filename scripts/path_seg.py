@@ -22,6 +22,13 @@ import sys
 import collections
 import genpy
 
+
+# change current directory
+workspace_path_env = os.environ['ROS_PACKAGE_PATH']
+workspace_path, b = workspace_path_env.split(':')
+os.chdir(workspace_path + "/kittiseg_ros")
+
+
 # configure logging
 
 logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',
